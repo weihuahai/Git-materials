@@ -21,4 +21,5 @@ git clone https://github.com/libgit2/libgit2 mylibgit
 提交代码之前，首先应该检查目前所做的修改，运行git status命令
 再试试到底怎么回事
 再试试能行了吗
+又不行了再试一次
 
