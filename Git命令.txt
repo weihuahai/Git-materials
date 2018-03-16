@@ -24,3 +24,4 @@ git clone https://github.com/libgit2/libgit2 mylibgit
 又不行了再试一次
 
 编码改变可行，试试反向从远程到本地
+再试一次行不行了
