@@ -1,24 +1,24 @@
-��װ��Git ��һ�� ���� �û���Ϣ�����ǽ������û���Ϣ (�û���������)�����Ե������ύ����ʱ������������û���Ϣ���ύ��Ϣ����ʹ�ø����ύ���̱�ø����ס�Ҫ�����û���Ϣ��������git config��
+﻿安装完Git 第一步 添加 用户信息，我们将添加用户信息 (用户名和邮箱)，所以当我们提交代码时，会产生带有用户信息的提交信息，这使得跟踪提交过程变得更容易。要添加用户信息，命令是git config：
 $ git config --global user.name "weihuahai"
  $ git config --global user.email "weihuahai119@126.com"
-$ git config --list  �鿴��Ϣ�Ƿ�ɹ�����
- $git  remote  �鿴Զ�̿���Ϣ   git remote -v ��ʾ��ϸ��Ϣ
-������Ŀ¼�г�ʼ���ֿ�
-��������ʹ�� Git �������е���Ŀ���й�������ֻ��Ҫ�������ĿĿ¼�����룺
+$ git config --list  查看信息是否成功更新
+ $git  remote  查看远程库信息   git remote -v 显示详细信息
+在现有目录中初始化仓库
+如果你打算使用 Git 来对现有的项目进行管理，你只需要进入该项目目录并输入：
 $ git init
-���������һ����Ϊ .git ����Ŀ¼�������Ŀ¼�������ʼ���� Git �ֿ������еı����ļ�����Щ�ļ��� Git �ֿ�ĹǸɡ� ���ǣ������ʱ�����ǽ���������һ����ʼ���Ĳ����������Ŀ����ļ���û�б����١�
-���������һ���Ѿ������ļ����ļ��У������ǿ��ļ��У��г�ʼ�� Git �ֿ������а汾���ƵĻ�����Ӧ�ÿ�ʼ������Щ�ļ����ύ�� ���ͨ�� git add ������ʵ�ֶ�ָ���ļ��ĸ��٣�Ȼ��ִ�� git commit �ύ��
+该命令将创建一个名为 .git 的子目录，这个子目录含有你初始化的 Git 仓库中所有的必须文件，这些文件是 Git 仓库的骨干。 但是，在这个时候，我们仅仅是做了一个初始化的操作，你的项目里的文件还没有被跟踪。
+如果你是在一个已经存在文件的文件夹（而不是空文件夹）中初始化 Git 仓库来进行版本控制的话，你应该开始跟踪这些文件并提交。 你可通过 git add 命令来实现对指定文件的跟踪，然后执行 git commit 提交：
 $ git add *.c
 $ git add LICENSE
 $ git commit -m 'initial project version'
- ���ڣ����Ѿ��õ���һ��ʵ��ά��������˵�Ǹ��٣������ɸ��ļ��� Git �ֿ⡣
-��¡�ֿ�������ʽ�� git clone [url] 
+ 现在，你已经得到了一个实际维护（或者说是跟踪）着若干个文件的 Git 仓库。
+克隆仓库的命令格式是 git clone [url] 
 git clone https://github.com/libgit2/libgit2 mylibgit
-�⽫ִ������һ��������ͬ�Ĳ����������ڱ��ش����Ĳֿ����ֱ�Ϊ mylibgit��
-������
-��ı��زֿ��� git ά�������á�������ɡ���һ������� ����Ŀ¼��������ʵ���ļ����ڶ����� �ݴ�����Index�������������������ʱ������ĸĶ�������� HEAD����ָ�������һ���ύ�Ľ��
-1.     �鿴Ŀǰ������޸�״̬
-�ύ����֮ǰ������Ӧ�ü��Ŀǰ�������޸ģ�����git status����
-�����Ե�����ô����
-
+这将执行与上一个命令相同的操作，不过在本地创建的仓库名字变为 mylibgit。
+工作流
+你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果
+1.     查看目前代码的修改状态
+提交代码之前，首先应该检查目前所做的修改，运行git status命令
+再试试到底怎么回事
+再试试能行了吗
 
