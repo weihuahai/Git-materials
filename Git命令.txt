@@ -21,3 +21,4 @@ git clone https://github.com/libgit2/libgit2 mylibgit
 提交代码之前，首先应该检查目前所做的修改，运行git status命令
 再试一次反向提交
 小张是憨子。
+小张 是 大憨子
