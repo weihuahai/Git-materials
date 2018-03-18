@@ -1,4 +1,18 @@
-﻿安装完Git 第一步 添加 用户信息，我们将添加用户信息 (用户名和邮箱)，所以当我们提交代码时，会产生带有用户信息的提交信息，这使得跟踪提交过程变得更容易。要添加用户信息，命令是git config：
+﻿简单方法如何把本地仓库同步到Github
+1 .进入Github首页，点击New repository新建一个项目
+ 2..点击Clone or dowload会出现一个地址，copy这个地址备用。
+3接下来就到本地操作了，首先右键你的项目，如果你之前安装git成功的话，右键会出现两个新选项，分别为Git Gui Here,Git Bash Here,这里我们选择Git Bash Here，进入我的项目名。
+接下来输入如下代码.把github上面的仓库克隆到本地
+git clone https://github.com/weihuahai/Git-repository.git
+4.这个步骤以后你的本地项目文件夹下面就会多出个文件夹，该文件夹名即为你github上面的项目名，我们把本地项目文件夹下的所有文件（除了新多出的那个文件夹不用），其余都复制到那个新多出的文件夹下，
+5.接着继续输入命令 cd Test，进入Test文件夹
+接下来依次输入以下代码即可完成其他剩余操作：
+git add .        （注：别忘记后面的.，此操作是把Test文件夹下面的文件都添加进来）
+git commit  -m  "提交信息"  （注：“提交信息”里面换成你需要，如“first commit”）
+git push -u origin master   （注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码）
+
+
+安装完Git 第一步 添加 用户信息，我们将添加用户信息 (用户名和邮箱)，所以当我们提交代码时，会产生带有用户信息的提交信息，这使得跟踪提交过程变得更容易。要添加用户信息，命令是git config：
 $ git config --global user.name "weihuahai"
  $ git config --global user.email "weihuahai119@126.com"
 $ git config --list  查看信息是否成功更新
@@ -19,6 +33,3 @@ git clone https://github.com/libgit2/libgit2 mylibgit
 你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果
 1.     查看目前代码的修改状态
 提交代码之前，首先应该检查目前所做的修改，运行git status命令
-再试一次反向提交
-小张是憨子。
-小张 是 大憨子
