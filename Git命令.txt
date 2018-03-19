@@ -11,6 +11,53 @@ git add .        （注：别忘记后面的.，此操作是把Test文件夹下�
 git commit  -m  "提交信息"  （注：“提交信息”里面换成你需要，如“first commit”）
 git push -u origin master   （注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码）
 
+从本地创建 方法
+1点击Create repository，创建库，如果不选中Initialize this repository with a README
+2.本地新建文件夹存放git。新建文件夹 然后 本地 git bash.echo "# 你想要说的" >> README.md （说明：echo "# 这里是你要创建的git项目的名字"）
+3再输入
+
+git init
+初始化一个git，初始完git后，如果你是window用户，你会在目录里看到一个.git文件夹，这就说明本地初始化git成功了，
+4输入
+
+git add README.md
+给git添加文件README.md，添加完以后，需要进行托付，并写明托付原因：
+
+git commit -m "first commit"
+其中-m后面的"first commit"就是你要写的托付原因，当然也是支持汉语的。接下来就是，添加远程仓库：(注意后面的链接是你创建github项目时，自动生成的)
+
+git remote add origin https://github.com/nongshuqiner/-git-.git
+添加完远程仓库分支后，接下来就是提交这个分支了
+：
+
+git push -u origin master
+提交的时候会要求你输入你的帐号和密码，如果没有要求也无关紧要，输入完成以后到我们的项目里看，它就创建成功了
+
+第二种方法 
+直接先把远程库创建好。如果我们当时选中Initialize this repository with a README(初始化本库)。
+们则需要把这个远程库拉到本地就可以了。点击绿色按钮clone or download
+复制里面的链接，我们再次打开命令行，linux如下：(window请打开Git bBash Here)
+
+cd ~
+mkdir gitproject（文件夹名）
+cd gitproject/ 
+首先到达home目录，创建一个文件夹名叫gitproject，再进入到文件夹里面。
+
+然后使用clone命令，从远程库拉一个分支：
+
+git clone https://github.com/weihuahai/playgit.git
+然后添加文件：
+
+git add .
+给git添加文件之后就和上面的步骤相同了，添加完以后，就该写托付，并写明托付原因：
+
+git commit -a
+这里使用-a来，当然上面的git commit -m "first commit"也是可以的。
+
+最后git push，进行推送提交。
+
+这里的本地化方式是先创建远程分支，再下拉到本地的
+
 
 安装完Git 第一步 添加 用户信息，我们将添加用户信息 (用户名和邮箱)，所以当我们提交代码时，会产生带有用户信息的提交信息，这使得跟踪提交过程变得更容易。要添加用户信息，命令是git config：
 $ git config --global user.name "weihuahai"
