@@ -29,7 +29,6 @@ git commit -m "first commit"
 git remote add origin https://github.com/nongshuqiner/-git-.git
 添加完远程仓库分支后，接下来就是提交这个分支了
 ：
-
 git push -u origin master
 提交的时候会要求你输入你的帐号和密码，如果没有要求也无关紧要，输入完成以后到我们的项目里看，它就创建成功了
 
