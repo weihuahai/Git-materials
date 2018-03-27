@@ -1,6 +1,6 @@
 ﻿简单方法如何把本地仓库同步到Github
 1 .进入Github首页，点击New repository新建一个项目
- 2..点击Clone or dowload会出现一个地址，copy这个地址备用。
+2.点击Clone or dowload会出现一个地址，copy这个地址备用。
 3接下来就到本地操作了，首先右键你的项目，如果你之前安装git成功的话，右键会出现两个新选项，分别为Git Gui Here,Git Bash Here,这里我们选择Git Bash Here，进入我的项目名。
 接下来输入如下代码.把github上面的仓库克隆到本地
 git clone https://github.com/weihuahai/Git-repository.git
@@ -11,30 +11,30 @@ git add .        （注：别忘记后面的.，此操作是把Test文件夹下�
 git commit  -m  "提交信息"  （注：“提交信息”里面换成你需要，如“first commit”）
 git push -u origin master   （注：此操作目的是把本地仓库push到github上面，此步骤需要你输入帐号和密码）
 
-从本地创建 方法
-1点击Create repository，创建库，如果不选中Initialize this repository with a README
+从本地创建
+ 方法一
+1.点击Create repository，创建库，如果不选中Initialize this repository with a README
 2.本地新建文件夹存放git。新建文件夹 然后 本地 git bash.echo "# 你想要说的" >> README.md （说明：echo "# 这里是你要创建的git项目的名字"）
-3再输入
+3.再输入  
 
 git init
-初始化一个git，初始完git后，如果你是window用户，你会在目录里看到一个.git文件夹，这就说明本地初始化git成功了，
-4输入
+     初始化一个git，初始完git后，如果你是window用户，你会在目录里看到一个.git文件夹，这就说明本地初始化git成功了，
+4.输入   
 
 git add README.md
-给git添加文件README.md，添加完以后，需要进行托付，并写明托付原因：
+   给git添加文件README.md，添加完以后，需要进行托付，并写明托付原因：
 
 git commit -m "first commit"
 其中-m后面的"first commit"就是你要写的托付原因，当然也是支持汉语的。接下来就是，添加远程仓库：(注意后面的链接是你创建github项目时，自动生成的)
 
-git remote add origin https://github.com/nongshuqiner/-git-.git
-添加完远程仓库分支后，接下来就是提交这个分支了
-：
+git remote add origin https://github.com/yourname/-git-.git
+添加完远程仓库分支后，接下来就是提交这个分支了：
 git push -u origin master
 提交的时候会要求你输入你的帐号和密码，如果没有要求也无关紧要，输入完成以后到我们的项目里看，它就创建成功了
 
-第二种方法 
+方法 二
 直接先把远程库创建好。如果我们当时选中Initialize this repository with a README(初始化本库)。
-们则需要把这个远程库拉到本地就可以了。点击绿色按钮clone or download
+然后需要把这个远程库拉到本地就可以了。点击绿色按钮clone or download
 复制里面的链接，我们再次打开命令行，linux如下：(window请打开Git bBash Here)
 
 cd ~
@@ -44,7 +44,7 @@ cd gitproject/
 
 然后使用clone命令，从远程库拉一个分支：
 
-git clone https://github.com/weihuahai/playgit.git
+git clone https://github.com/weihuahai/playgit.git  
 然后添加文件：
 
 git add .
@@ -55,7 +55,7 @@ git commit -a
 
 最后git push，进行推送提交。
 
-这里的本地化方式是先创建远程分支，再下拉到本地的
+这里的本地化方式是先创建远程分支，再下拉到本地的。
 你提交的时候它会给你进行提示：修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
 
 如果你只是修改文件则直接：git commit -a，然后自动进入vim编辑器，你在英文输入法下按i键，然后在最上面一栏输入提交的内容(随便说说你都干了什么)，然后esc，英文输入法下：shift+：输入wq(w保存，q退出)，就可以了。
@@ -85,17 +85,16 @@ git clone https://github.com/libgit2/libgit2 mylibgit
 这将执行与上一个命令相同的操作，不过在本地创建的仓库名字变为 mylibgit。
 工作流
 你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；最后是 HEAD，它指向你最后一次提交的结果
-Git 工作流程是：1。在工作目录中添加，修改文件2，将需要进行版本管理的文件放入暂存区域3.将暂存区域的文件提交到Git仓库。因此Git管理的文件有三种状态：已修改（modified） ,已暂存（staged）和已提交（commited）依次对应上边的每一个流程
+Git 工作流程是：1.在工作目录中添加，修改文件    2.将需要进行版本管理的文件放入暂存区域    3.将暂存区域的文件提交到Git仓库。因此Git管理的文件有三种状态：已修改（modified） ,已暂存（staged）和已提交（commited）依次对应上边的每一个流程
 
-1.     查看目前代码的修改状态
+                              查看目前代码的修改状态
 提交代码之前，首先应该检查目前所做的修改，运行git status命令
 git log 查看历史 按Q退出查看
-git reset --mixed HEAD~ 移动HEAD 的指向， 将其指向向上一个快照。
- 将HEAD移动后指向的快照回滚到暂存区域
-两个波浪线就是 返回上上一个快照以此类推~ 10 上10个快照
+git reset --mixed HEAD~ 移动HEAD 的指向， 将其指向向上一个快照。将HEAD移动后指向的快照回滚到暂存区域
+.     (两个波浪线就是 返回上上一个快照以此类推~ 10 上10个快照)
 git rest --soft HEAD ~ 移动HEAD的指向，将其指向上一个快照 （比如储存仓库后悔，可以回滚到暂存区域）
 git rest --hard HEAD ~ 移动HEAD的指向， 将其指向上一个快照  将 HEAD移动后指向的快照回滚到暂存区域  将 暂存区域的文件还原到工作目录 
-reset 命令回滚快照三部曲
+                         reset 命令回滚快照三部曲
 1.移动HEAD的指向（--soft）
 2.将快照回滚到暂存区域（【--mixed】,默认）
 3，将暂存区域还原到工作目录（--hard）
@@ -140,7 +139,7 @@ e027aa4 HEAD@{1}: commit: add ccc
  
 显示框 ： J K上下翻动行  F G 上下翻动页   数字+ J K上下翻动多少行  D向下翻动半页 U向上翻动半页    /+搜索关键词 从上往下搜索    ？从下往上搜索 按H 帮助
 
-二 、比较暂存区域与 工作目录
+       比较暂存区域与 工作目录
 git diff      (---代表旧文件在暂存区域  +++代表新文件在工作区域的文件)
        比较两个历史快照
 git diff     快照ID1  快照ID2
