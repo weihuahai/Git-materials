@@ -148,6 +148,4 @@ git diff     快照ID1  快照ID2
  git diff HEAD
     比较 暂存区域和Git 仓库中的快照
 git diff --cached 快照ID          
-试试是不是这样
-再试一下暂存区域的
 
