@@ -144,8 +144,10 @@ e027aa4 HEAD@{1}: commit: add ccc
 git diff      (---代表旧文件在暂存区域  +++代表新文件在工作区域的文件)
        比较两个历史快照
 git diff     快照ID1  快照ID2
-       比较当前工作目录和Git仓库中的快照
-git diff  快照ID
+       比较当前工作目录和Git仓库中的快照 
+ git diff HEAD
     比较 暂存区域和Git 仓库中的快照
-git diff --cached 快照ID
+git diff --cached 快照ID          
+试试是不是这样
+再试一下暂存区域的
 
