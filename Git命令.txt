@@ -103,3 +103,49 @@ reset 命令回滚快照三部曲
 git reset 哈希数值
 回滚个别文件  
 git reset  版本快照 文件名/路径
+
+实例1
+多次更改
+# echo bbb >> 1.txt
+# git add 1.txt
+# git commit -m "add bbb"
+# echo ccc >> 1.txt
+# git add 1.txt
+# git commit -m "add ccc"
+查看历史版本
+# git log 
+# 可以查看所有提交git仓库的记录操作
+按照时间顺序排序，最上面的是最新的，最下面（最靠近命令行）的是最早的更改。显示的信息更多更丰富。
+# git log --pretty=oneline  （git log --oneline）
+# 在一行显示所有的更改信息
+e027aa4715ef5e2a9626161a989a160da9426df1 add ccc
+093e8cd81030c1c75b6330388f3626c96c12bca1 add aaa
+版本号 描述
+# git log --pretty=oneline --abbrev-commit
+# 精简显示的信息
+e9cac5d add 111
+9fd1e07 11
+53a659a add line
+e27c209 111
+恢复历史版本
+# git reset --hard 
+093e # 恢复指定的版本号，版本号只需前面四位即可，也可以复制完整。
+回退历史版本
+恢复历史版本之后，发现误操作，想恢复之前的版本，这时候使用 git log 并不能显示所有的信息。
+# git reflog
+093e8cd HEAD@{0}: 093e: updating HEAD
+e027aa4 HEAD@{1}: commit: add ccc
+093e8cd HEAD@{2}: commit: add aaa
+# git reset --hard e027
+ 
+显示框 ： J K上下翻动行  F G 上下翻动页   数字+ J K上下翻动多少行  D向下翻动半页 U向上翻动半页    /+搜索关键词 从上往下搜索    ？从下往上搜索 按H 帮助
+
+二 、比较暂存区域与 工作目录
+git diff      (---代表旧文件在暂存区域  +++代表新文件在工作区域的文件)
+       比较两个历史快照
+git diff     快照ID1  快照ID2
+       比较当前工作目录和Git仓库中的快照
+git diff  快照ID
+    比较 暂存区域和Git 仓库中的快照
+git diff --cached 快照ID
+
