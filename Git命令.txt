@@ -192,3 +192,4 @@ git fetch origin 远程分支名x:本地分支名x
 采用此种方法建立的本地分支不会和远程分支建立映射关系。
 
 重点：git 拉取其实只需要 git fetch origin xxx、 git pull origin xxx即可。
+远程拉取分支后，本地HEAD指针指向 分支， 修改了master上的文件需要 git checkout master 然后重新git commit -m 然后git push
