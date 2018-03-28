@@ -1,4 +1,6 @@
-﻿简单方法如何把本地仓库同步到Github
+﻿在这里我想将默认编辑器改为vim。打开.git/config文件，在core中添加 editor=vim即可。
+或者运行命令 git config –global core.editor vim 修改更加方便。
+简单方法如何把本地仓库同步到Github
 1 .进入Github首页，点击New repository新建一个项目
 2.点击Clone or dowload会出现一个地址，copy这个地址备用。
 3接下来就到本地操作了，首先右键你的项目，如果你之前安装git成功的话，右键会出现两个新选项，分别为Git Gui Here,Git Bash Here,这里我们选择Git Bash Here，进入我的项目名。
@@ -89,7 +91,7 @@ Git 工作流程是：1.在工作目录中添加，修改文件    2.将需要�
 
                               查看目前代码的修改状态
 提交代码之前，首先应该检查目前所做的修改，运行git status命令
-git log 查看历史 按Q退出查看
+git log 查看当前分支历史 按Q退出查看
 git reset --mixed HEAD~ 移动HEAD 的指向， 将其指向向上一个快照。将HEAD移动后指向的快照回滚到暂存区域
 .     (两个波浪线就是 返回上上一个快照以此类推~ 10 上10个快照)
 git rest --soft HEAD ~ 移动HEAD的指向，将其指向上一个快照 （比如储存仓库后悔，可以回滚到暂存区域）
@@ -142,9 +144,37 @@ e027aa4 HEAD@{1}: commit: add ccc
        比较暂存区域与 工作目录
 git diff      (---代表旧文件在暂存区域  +++代表新文件在工作区域的文件)
        比较两个历史快照
-git diff     快照ID1  快照ID2
-       比较当前工作目录和Git仓库中的快照 
- git diff HEAD
-    比较 暂存区域和Git 仓库中的快照
-git diff --cached 快照ID          
- 
+git diff     快照ID1  快照ID2    
+       比较当前工作目录和Git仓库中的快照
+git diff HEAD
+       比较 暂存区域和Git 仓库中的快照
+git diff --cached 快照ID   
+           修改最后一次提交
+git commit --amend 可以修改 提交说明然后再VIM里 ESC 然后shift +Z Z 退出， 或者直接 git commmit --amend -m "提交说明"
+         删除文件
+工作目录删除了文件， 在GIT里 git status 可以查看文件状态， 在暂存区域，然后用 check out 命令恢复到工作区域， git checkout -- 文件名
+git rm 文件名   该命令删除的只是工作目录和暂存区域的文件，也就是取消跟踪，在下次提交时不纳入版本管理可以继续使用 git reset --soft  HEAD~修改仓库指针
+如果暂存区域和工作目录都有同时被跟踪的文件，git rm -f 文件名 会强制删除 
+如果只删除暂存区域文件保留工作区域文件，git rm --cached 文件名
+          重命名文件
+git mv 原文件名 新文件名                           git log --decorate许多时候知道commit是和哪一个分支或tag关联的是非常有用的. --decorate标                                                                 记会让git log显示每个commit的引用(如:分支、tag等).
+                    创建分支
+git branch feature
+                    切换分支                   git log --decorate --oneline --graph --all 图形化显示所有的分支
+git checkout feature
+                    合并分支
+git merge 分支名
+                  删除分支
+git branch -d 分支名
+                   匿名分支和checkout命令
+
+checkout命令 两种功能：1 从历史快照（或者暂存区域）中拷贝文件到工作目录    2 切换分支
+当给定某个文件名时，Git 会从指定的提交中拷贝文件到暂存区域和工作目录，比如执行git checkout HEAD~ README.md命令会将 上一个快照中的README.md文件复制到工作目录和暂存区域中
+如果命令中没有制定具体的快照ID，则将从暂存区域恢复指定文件到工作目录(git checkout README,md）
+checkout 和reset 区别
+两者都可以用于恢复指定快照的指定文件，并且他们都不会改变HEAD指针的指向
+区别是 reset 命令只将制定文件恢复到暂存区域（--mixed），而checkout 命令是同时覆盖暂存区域和工作目录、
+注意：也许你试图使用 git reset --hard HEAD~ README.md 命令让reset 同时覆盖工作目录，但Git回该诉你这是徒劳的（此时reset不允许使用--soft 或者 --hard）这样看来，在恢复文件方面，reset命令比checkout命令更安全
+
+
+
