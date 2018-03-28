@@ -175,6 +175,20 @@ checkout 和reset 区别
 两者都可以用于恢复指定快照的指定文件，并且他们都不会改变HEAD指针的指向
 区别是 reset 命令只将制定文件恢复到暂存区域（--mixed），而checkout 命令是同时覆盖暂存区域和工作目录、
 注意：也许你试图使用 git reset --hard HEAD~ README.md 命令让reset 同时覆盖工作目录，但Git回该诉你这是徒劳的（此时reset不允许使用--soft 或者 --hard）这样看来，在恢复文件方面，reset命令比checkout命令更安全
+                    git拉取远程分支并创建本地分支
+一、查看远程分支
+使用如下git命令查看所有远程分支：
+git branch -r
+二、拉取远程分支并创建本地分支
+方法一
+使用如下命令：
+git checkout -b 本地分支名x origin/远程分支名x
+使用该方式会在本地新建分支x，并自动切换到该本地分支x。
+采用此种方法建立的本地分支会和远程分支建立映射关系。
+方式二
+使用如下命令：
+git fetch origin 远程分支名x:本地分支名x
+使用该方式会在本地新建分支x，但是不会自动切换到该本地分支x，需要手动checkout。
+采用此种方法建立的本地分支不会和远程分支建立映射关系。
 
-
-
+重点：git 拉取其实只需要 git fetch origin xxx、 git pull origin xxx即可。
